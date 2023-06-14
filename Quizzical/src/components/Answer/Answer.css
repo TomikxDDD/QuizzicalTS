@@ -1,0 +1,59 @@
+.answer{
+  /* height: 1.5rem; */
+  min-width: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  margin: 0;
+  padding: 0.5rem 1rem;
+
+  border-radius: 0.5rem;
+  border: 1px solid var(--clr-theme);
+
+  background: transparent;
+  color: var(--clr-theme-dark);
+
+  font-family: Inter;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.answer:hover{
+  background-color: #D6DBF5;
+  color: var(--clr-theme);
+  cursor: pointer;
+}
+
+.answer:active{
+  background-color: var(--clr-theme);
+  color: white;
+  cursor: pointer;
+}
+
+
+.answer-selected:hover{
+  background: var(--clr-theme-dark);
+  color: white;
+}
+
+.answer-correct{
+  background-color: green;
+  color: white;
+}
+
+.answer-correct:hover{
+  background-color: rgb(1, 100, 1);
+  color: white;
+}
+
+.answer-incorrect{
+  background-color: red;
+  color: white;
+}
+
+.answer-incorrect:hover{
+  background-color: rgb(225, 0, 0);
+  color: white;
+}

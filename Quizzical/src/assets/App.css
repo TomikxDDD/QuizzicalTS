@@ -1,0 +1,55 @@
+/*Welcome screen*/
+
+:root{
+  --clr-theme: #4D5B9E;
+  --clr-theme-dark: #333c6b;
+}
+
+body{
+  min-height: 100vh;
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+}
+
+.app-container{
+  width: min(80%, 1280px);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+
+.btn{
+  border: none;
+  border-radius: 100rem;
+  font-family: Inter;
+  font-size: 1rem;
+  text-align: center;
+  padding: 0.5em 1.25em;
+  cursor: pointer;
+  transition: 0.3s ease;
+  background: var(--clr-theme);
+  color: #F5F7FB;
+}
+
+.btn:hover {
+  background: var(--clr-theme-dark);
+  color: #fff;
+}
+
+
+/* QuestionScreen */
+
+
+
+
+
+
+

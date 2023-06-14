@@ -1,0 +1,14 @@
+.question-screen-container{
+  width: min(90%, 1200px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+}
+
+.question-screen-heading{
+  font-family: Karla;
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+}
