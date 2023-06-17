@@ -1,0 +1,39 @@
+.settings__h2 {
+  font-size: 2rem;
+  margin-bottom: 2em
+}
+
+.setting-form label,
+.setting-form input,
+.setting-form select {
+  margin: 0 auto;
+}
+
+.settings-form-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+@media (min-width: 600px) {
+  .settings-form-row {
+    flex-direction: row;
+
+  }
+}
+
+.settings-form-row + .settings-form-row {
+  margin-top: 2em;
+}
+
+
+.settings-form select, 
+.settings-form input {
+  width: 60%;
+}
+
+.settings-form{
+  margin-bottom: 2em;
+}

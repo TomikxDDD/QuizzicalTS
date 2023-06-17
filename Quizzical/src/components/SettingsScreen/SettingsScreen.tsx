@@ -1,69 +1,18 @@
 import { Link } from 'react-router-dom';
 import { useState, ChangeEvent } from 'react'
-import './OptionsScreen.css'
+import './SettingsScreen.css'
+import { Settings, Category, Difficulty, questionType } from '../../Settings';
 
-enum Category{
-  'ANY' = '',
-  'GENERAL_KNOWLEDGE'= 9,
-  'ENTERTAINMENT_BOOKS',
-  'ENTERTAINMENT_FILM',
-  'ENTERTAINMENT_MUSIC',
-  'ENTERTAINMENT_MUSICALS_THEATRES',
-  'ENTERTAINMENT_TELEVISION',
-  'ENTERTAINMENT_VIDEO_GAMES',
-  'ENTERTAINMENT_BOARD_GAMES',
-  'SCIENCE_NATURE',
-  'SCIENCE_COMPUTERS',
-  'SCIENCE_MATHEMATICS',
-  'MYTHODOLOGY',
-  'SPORTS',
-  'GEOGRAPHY',
-  'HISTORY',
-  'POLITICS',
-  'ART',
-  'CELEBRITIES',
-  'ANIMALS',
-  'VEHICLES',
-  'ENTERTAINMENT_COMICS',
-  'SCIENCE_GADGETS',
-  'ENTERTAINMENT_JAPANESE_ANIME_MANGA',
-  'ENTERTAINMENT_CARTOON_ANIMATIONS',
-}
-
-enum Difficulty{
-  'ANY' = '',
-  'EASY' = 'easy',
-  'MEDIUM' = 'medium',
-  'HARD' = 'hard'
-}
-
-enum questionType{
-  'ANY' = '',
-  'MULTIPLE' = 'multiple',
-  'BOOLEAN' = 'boolean'
-}
-
-interface Settings{
-  numOfQuestions: number,
-  category: Category,
-  difficulty: Difficulty,
-  type: questionType
-}
-
-const initialSettings: Settings = {
-  numOfQuestions: 5,
-  category: Category.ANY,
-  difficulty: Difficulty.ANY,
-  type: questionType.ANY
-}
 
 interface Props{
-
+  settings: Settings
+  setSettings: Function,
+  resetSettings: Function
 }
 
-const OptionsScreen: React.FC<Props> = ({  }) => {
+const SettingsScreen: React.FC<Props> = ({ settings, setSettings, resetSettings }) => {
 
-  const [settings, setSettings] = useState(initialSettings)
+  console.log("Inside SettingsScreen component. Settings: ", settings)
 
   function handleChange (e: ChangeEvent, parameterToChange: string){
     setSettings(oldSettings => {
@@ -74,27 +23,28 @@ const OptionsScreen: React.FC<Props> = ({  }) => {
             ...oldSettings,
             numOfQuestions: parseInt(e.target.value, 10)
           }
+          break;
         }
         case 'category':{
-          console.log(e.target.value)
           newSettings = {
             ...oldSettings,
             category: e.target.value
           }
+          break;
         }
         case 'difficulty':{
-          console.log(e.target.value)
           newSettings = {
             ...oldSettings,
             difficulty: e.target.value
           }
+          break;
         }
         case 'type':{
-          console.log(e.target.value)
           newSettings = {
             ...oldSettings,
             type: e.target.value
           }
+          break;
         }
       }
       return newSettings
@@ -105,12 +55,16 @@ const OptionsScreen: React.FC<Props> = ({  }) => {
 
   console.log(settings)
 
+  function handleReset () : void{
+    resetSettings()
+  }
+  
   return ( 
     <>
-      <h2>{"Settings here"}</h2>
-      <form>
-        <div className="options-form-row">
-          <label htmlFor="num-of-questions">Number of questions</label>
+      <h2 className='settings__h2'>Settings</h2>
+      <form className='settings-form'>
+        <div className="settings-form-row">
+          <label htmlFor="num-of-questions">Number of questions: </label>
           <input 
             id='num-of-questions' 
             type="number" 
@@ -119,8 +73,8 @@ const OptionsScreen: React.FC<Props> = ({  }) => {
             value={settings.numOfQuestions}
             onChange={(e) => handleChange(e, 'numOfQuestions')} />
         </div>
-        <div className="options-form-row">
-          <label htmlFor="category">Category of questions</label>
+        <div className="settings-form-row">
+          <label htmlFor="category">Category of questions: </label>
           <select 
             name="questions-type" 
             id="type" 
@@ -154,8 +108,8 @@ const OptionsScreen: React.FC<Props> = ({  }) => {
             <option value={Category.VEHICLES}>Vehicles</option>
           </select>
         </div>
-        <div className="options-form-row">
-          <label htmlFor="difficulty">Difficulty of questions</label>
+        <div className="settings-form-row">
+          <label htmlFor="difficulty">Difficulty of questions: </label>
           <select 
             name="questions-type" 
             id="type" 
@@ -168,8 +122,8 @@ const OptionsScreen: React.FC<Props> = ({  }) => {
             <option value={Difficulty.HARD}>Hard</option>
           </select>
         </div>
-        <div className="options-form-row">
-          <label htmlFor="type">Type of questions</label>
+        <div className="settings-form-row">
+          <label htmlFor="type">Type of questions: </label>
           <select 
             name="questions-type" 
             id="type"
@@ -182,9 +136,14 @@ const OptionsScreen: React.FC<Props> = ({  }) => {
           </select>
         </div>
       </form>
-      <Link to='/questions'> Back </Link>
+      <button 
+        className="btn btn-reset"
+        onClick={handleReset}> Reset to default values </button>
+      <Link to='/questions'> 
+        <button className="btn btn-settings"> Save and return </button>
+      </Link>
     </>
    );
-}
+  }
  
-export default OptionsScreen;
+  export default SettingsScreen;

@@ -1,12 +1,21 @@
 import './assets/App.css'
 import './assets/reset.css'
 
+import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import WelcomeScreen from './components/WelcomeScreen/WelcomeScreen'
 import QuestionsScreen from './components/QuestionScreen/QuestionsScreen'
-import OptionsScreen from './components/OptionsScreen/OptionsScreen'
+import SettingsScreen from './components/SettingsScreen/SettingsScreen'
+
+import { initialSettings } from './Settings'
 
 function App() {
+
+  const [settings, setSettings] = useState(initialSettings)
+
+  function resetSettings () {
+    setSettings(initialSettings)
+  }
 
 
   return (
@@ -14,9 +23,10 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<WelcomeScreen/>}></Route>
-          <Route path='/questions' element={<QuestionsScreen/>}></Route>
-          <Route path='/options' element={<OptionsScreen/>}></Route>
+          <Route path='/questions' element={<QuestionsScreen settings={settings}/>}></Route>
+          <Route path='/settings' element={<SettingsScreen settings={settings}  setSettings={setSettings} resetSettings={resetSettings}/>}></Route>
         </Routes>
+
       </BrowserRouter>
     </div>
   )

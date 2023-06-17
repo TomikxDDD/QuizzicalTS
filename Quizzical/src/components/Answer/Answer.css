@@ -32,6 +32,11 @@
   cursor: pointer;
 }
 
+.answer-selected{
+  background: var(--clr-theme);
+  color: white;
+
+}
 
 .answer-selected:hover{
   background: var(--clr-theme-dark);
