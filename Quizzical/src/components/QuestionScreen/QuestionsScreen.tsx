@@ -15,7 +15,6 @@ interface Props{
 
 const QuestionsScreen: React.FC <Props>  = ({ settings }) => {
 
-
   const url = getOpentdbURL(settings)
 
   const [urlKey, setUrlKey] = useState(Date.now().toString());
@@ -42,7 +41,18 @@ const QuestionsScreen: React.FC <Props>  = ({ settings }) => {
       <main className="question-screen-container">
         <h2 className="question-screen-heading"> Test your skills </h2>
         <div className="questions">
-          {isLoading && <h2 className="question-screen-heading">Questions are being loaded</h2>}
+          {/* {isLoading && <h2 className="question-screen-heading">Questions are being loaded</h2>} */}
+          {isLoading && 
+            <div className="question-loading-container">
+              <div className="dots-container">
+                <div className="dot dot-1"></div>
+                <div className="dot dot-2"></div>
+                <div className="dot dot-3"></div>
+
+              </div>
+            </div>
+          }
+
           {error && <h2 className="question-screen-heading">{error}</h2>}
 
           {!isLoading && !error && questions}
