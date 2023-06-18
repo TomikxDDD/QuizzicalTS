@@ -16,8 +16,8 @@ const SettingsScreen: React.FC<Props> = ({ settings, setSettings, resetSettings 
   const maxNumOfQuestions = 10;
 
  
-  function handleChange (e: ChangeEvent, parameterToChange: string){
-    setSettings(oldSettings => {
+  function handleChange (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>, parameterToChange: string){
+    setSettings((oldSettings: Settings) => {
       let newSettings = {...oldSettings}
       switch (parameterToChange){
         case 'numOfQuestions':{
@@ -30,21 +30,21 @@ const SettingsScreen: React.FC<Props> = ({ settings, setSettings, resetSettings 
         case 'category':{
           newSettings = {
             ...oldSettings,
-            category: e.target.value
+            category: e.target.value as Category
           }
           break;
         }
         case 'difficulty':{
           newSettings = {
             ...oldSettings,
-            difficulty: e.target.value
+            difficulty: e.target.value as Difficulty
           }
           break;
         }
         case 'type':{
           newSettings = {
             ...oldSettings,
-            type: e.target.value
+            type: e.target.value as questionType
           }
           break;
         }

@@ -6,12 +6,13 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import WelcomeScreen from './components/WelcomeScreen/WelcomeScreen'
 import QuestionsScreen from './components/QuestionScreen/QuestionsScreen'
 import SettingsScreen from './components/SettingsScreen/SettingsScreen'
+import { Settings } from './Settings'
 
 import { initialSettings } from './Settings'
 
 function App() {
 
-  const [settings, setSettings] = useState(() => {
+  const [settings, setSettings] = useState<Settings>(() => {
     const settingsFromStorage = localStorage.getItem('quizzical_settings')
     if (settingsFromStorage !== null){
       return JSON.parse(settingsFromStorage)

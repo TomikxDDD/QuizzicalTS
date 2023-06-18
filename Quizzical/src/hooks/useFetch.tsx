@@ -1,7 +1,12 @@
 import { useEffect, useState } from "react";
 
 const useFetch = (url: string, timeStamp: string) => {
-  const [data, setData] = useState(null);
+
+  interface FetchData {
+    results: any[]; // Replace `any` with the appropriate type for your question data
+  }
+
+  const [data, setData] = useState<FetchData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
