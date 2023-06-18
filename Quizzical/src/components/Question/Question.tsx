@@ -28,7 +28,7 @@ interface Props{
 
 const Question: React.FC <Props> = ({ questionData }) => {
 
-  const [answers, setAnswers] = useState([])
+  const [answers, setAnswers] = useState<IAnswer[]>([])
 
 
 
@@ -57,7 +57,7 @@ const Question: React.FC <Props> = ({ questionData }) => {
 
   function handleSelect(id: string): void {
     console.log("Question: handle selected triggered. ID: ", id)
-    setAnswers(oldAnswers => oldAnswers.map(ans => {
+    setAnswers(oldAnswers => oldAnswers.map((ans) => {
       if (ans.id === id){
         return {
           ...ans,

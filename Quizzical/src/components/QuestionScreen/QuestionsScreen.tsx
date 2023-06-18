@@ -60,7 +60,7 @@ const QuestionsScreen: React.FC <Props>  = ({ settings }) => {
       </main>
       <button type="button" className="btn btn-check-answers" onClick={handleNewQuestions}> New questions </button>
       <Link to='/settings'> 
-        <button type="button" className="btn btn-check-answers" /*onClick={handleClick}*/> Settings </button> 
+        <button type="button" className="btn btn-check-answers" > Settings </button> 
       </Link>
     </>
   )
