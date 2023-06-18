@@ -1,6 +1,10 @@
 import './Component.css'
 
-const Component = ({ textToRender }) => {
+interface Props{
+  textToRender: string
+}
+
+const Component: React.FC<Props> = ({ textToRende }) => {
   return ( 
     <div>{textToRender}</div>
    );

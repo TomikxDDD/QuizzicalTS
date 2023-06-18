@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useState, ChangeEvent } from 'react'
+import { ChangeEvent } from 'react'
 import './SettingsScreen.css'
 import { Settings, Category, Difficulty, questionType } from '../../Settings';
 

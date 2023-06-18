@@ -4,7 +4,6 @@ import './Question.css'
 import {nanoid} from "nanoid"
 import { decodeTextFromAPI } from '../../utils/decodeTextFromAPI';
 import { shuffleArray } from '../../utils/shuffleArray';
-import { Category, Difficulty } from '../../Settings';
 
 interface QuestionData{
   category: string,
