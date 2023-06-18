@@ -12,8 +12,10 @@ interface Props{
 
 const SettingsScreen: React.FC<Props> = ({ settings, setSettings, resetSettings }) => {
 
-  console.log("Inside SettingsScreen component. Settings: ", settings)
+  const minNumOfQuestions = 3;
+  const maxNumOfQuestions = 10;
 
+ 
   function handleChange (e: ChangeEvent, parameterToChange: string){
     setSettings(oldSettings => {
       let newSettings = {...oldSettings}
@@ -47,15 +49,12 @@ const SettingsScreen: React.FC<Props> = ({ settings, setSettings, resetSettings 
           break;
         }
       }
+      
       return newSettings
-    }
-    
-    )
+    })
   }
 
-  console.log(settings)
-
-  function handleReset () : void{
+  function handleReset (): void {
     resetSettings()
   }
   
@@ -68,8 +67,9 @@ const SettingsScreen: React.FC<Props> = ({ settings, setSettings, resetSettings 
           <input 
             id='num-of-questions' 
             type="number" 
-            min={3} 
-            max={10} 
+            min={minNumOfQuestions} 
+            max={maxNumOfQuestions} 
+            title={`Min value: ${minNumOfQuestions}; Max value: ${maxNumOfQuestions}`}
             value={settings.numOfQuestions}
             onChange={(e) => handleChange(e, 'numOfQuestions')} />
         </div>

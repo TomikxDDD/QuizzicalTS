@@ -1,3 +1,4 @@
+import { decodeTextFromAPI } from '../../utils/decodeTextFromAPI'
 import './Answer.css'
 
 interface Props{
@@ -18,14 +19,22 @@ const Answer: React.FC<Props> = (
   }
 ) => {
 
+  let classNameCorrect: string
+  if (selected && correct){
+    classNameCorrect = 'answer-correct'
+  } else if (selected && !correct){
+    classNameCorrect = 'answer-incorrect'
+  } else {
+    classNameCorrect = ''
+  }
+
   
-  const classNameSelected: string = selected ? 'answer-selected' : ''
+  const className: string = 'answer' + ' ' + classNameCorrect 
+
+  const decodedAnswer: string = decodeTextFromAPI(text)
   
-  const className: string = 'answer' + ' ' + classNameSelected 
-  
-  console.log("Answer: Id: ", id, 'class name: ', className)
   return ( 
-    <p onClick={() => handleSelect(id)} className={className}> {text} </p>
+    <p onClick={() => handleSelect(id)} className={className}> {decodedAnswer} </p>
   )
 }
  

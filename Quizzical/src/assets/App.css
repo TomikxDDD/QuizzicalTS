@@ -16,7 +16,7 @@ body{
 
 .app-container{
   width: min(80%, 1280px);
-  margin: 0 auto;
+  margin: 5em auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -38,6 +38,7 @@ body{
   transition: 0.3s ease;
   background: var(--clr-theme);
   color: #F5F7FB;
+  margin: 0.5em auto;
 }
 
 .btn:hover {

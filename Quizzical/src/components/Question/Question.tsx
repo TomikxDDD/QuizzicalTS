@@ -4,6 +4,7 @@ import './Question.css'
 import {nanoid} from "nanoid"
 import { decodeTextFromAPI } from '../../utils/decodeTextFromAPI';
 import { shuffleArray } from '../../utils/shuffleArray';
+import { Category, Difficulty } from '../../Settings';
 
 interface QuestionData{
   category: string,
@@ -85,10 +86,13 @@ const Question: React.FC <Props> = ({ questionData }) => {
     
   const decodedQuestion: string = decodeTextFromAPI(questionData.question)
 
-
   return ( 
     <section className="question-container">
     <h2 className="question-text"> {decodedQuestion} </h2>
+    <div className="batches">
+      <span className='batch-question question-category'>Category - {questionData.category}</span> 
+      <span className='batch-question question-difficulty'>Difficulty - {questionData.difficulty}</span>
+    </div>
     <div className="answers-container">
       {answersToRender}
     </div>

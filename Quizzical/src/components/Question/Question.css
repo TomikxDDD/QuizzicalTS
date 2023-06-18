@@ -27,3 +27,16 @@
   background: #DBDEF0;
   margin: 1rem 0;
 }
+
+.batch-question{
+  display: inline-block;
+  border-radius: 100rem;
+  font-size: 0.75rem;
+  text-align: center;
+  padding: 0.25em 0.75em;
+  border: 1px solid var(--clr-theme);
+  color: var(--clr-theme);
+  background-color: #F5F7FB;
+  margin-bottom: 1em;
+  margin-right: 1em;
+}
