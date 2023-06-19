@@ -14,7 +14,7 @@ const SettingsScreen: React.FC<Props> = ({ settings, setSettings, resetSettings 
 
   const minNumOfQuestions = 3;
   const maxNumOfQuestions = 10;
-
+  
  
   function handleChange (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>, parameterToChange: string){
     setSettings((oldSettings: Settings) => {

@@ -12,7 +12,8 @@ const useFetch = (url: string, timeStamp: string) => {
 
   useEffect(() => {
     setIsLoading(true)
-    fetch(url) 
+    const abortController = new AbortController()
+    fetch(url, { signal: abortController.signal }) 
       .then((res) => {
         if (!res.ok) {
           throw Error(`There is an error during fetching... ${res.status}: ${res.statusText}`);
@@ -33,6 +34,7 @@ const useFetch = (url: string, timeStamp: string) => {
         }
       }
     );
+    return () => {abortController.abort()}
   }, [url, timeStamp]);
   return { data, setData, isLoading, error };
 };
