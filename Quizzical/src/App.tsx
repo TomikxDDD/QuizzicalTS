@@ -9,6 +9,7 @@ import SettingsScreen from './components/SettingsScreen/SettingsScreen'
 import { Settings } from './Settings'
 
 import { initialSettings } from './Settings'
+import NotFound from './components/NotFound/NotFound'
 
 function App() {
 
@@ -37,6 +38,7 @@ function App() {
           <Route path='/' element={<WelcomeScreen />}></Route>
           <Route path='/questions' element={<QuestionsScreen settings={settings}/>}></Route>
           <Route path='/settings' element={<SettingsScreen settings={settings}  setSettings={setSettings} resetSettings={resetSettings}/>}></Route>
+          <Route path='*' element={<NotFound />}></Route>
         </Routes>
 
       </BrowserRouter>
